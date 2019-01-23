@@ -1,0 +1,48 @@
+1.使用字面正则表达式：
+	1.r"""[$"'\n\d/\\]"""
+	2."[$\"'\n\\d/\\\\]"
+2.导入模块：import re
+3.获取对象：reobj=re.compile("regex pattern",re.VERBOSE|re.IGNORECASE|re.DOTAIL)
+4.检测是否可匹配：if re.search("regex pattern",subject):
+		#success
+		else
+		#fail
+5.检测是否完整匹配：if re.match(r"regex pattern\Z",subject):
+		#success
+		else:
+		#fail
+6.获取匹配文本：reobj=re.compile("regex pattern")
+	          matchobj=reobj.search(subject)
+   	          if match:
+		result=matchobj.group()
+	          else:
+		#
+7.获取匹配长度位置：reobj=re.compile(r"\d+")
+		matchobj=reobj.search(subject)
+		if matchobj:
+			matchstart=matchobj.start()
+			matchlength=matchobj.end()-matchstart
+8.获取匹配一部分：result=matchobj.group(1)
+		result=matchobj.group("domain") #命名捕获	
+9.获取各次匹配的列表：result=reobj.findall(subject)
+10.遍历所有匹配：for matchobj in reobj.finditer(subject)
+11.替换匹配：result=re.sub("before","after",subject)
+		reobj=re.compile(r"(\w+)=(\w+)")
+		result=reobj.sub(r"\2=\1",subject)
+12.使用匹配子串替换匹配：result=re.sub(r"(\w+)=(\w+)",r"\2=\1",subject)
+13.替换代码：result=re.sub(r"\d+",computerreplacement,subject)
+		def computerreplacement(matchobj):
+			return str(int(matchobj.group())*2)
+14.替换另一个正则匹配内的所有匹配：innerre=re.compile("before")
+				def replacewith(matchobj):
+					return innerre.sub("after",match.group())
+				result=re.sub("<b>.?*</b>",replacewith,subject)
+15.拆分字符串：result=re.split("<[^<>]*>",subject)  如I like <b>bold</b> and <i>italic</i> fonts
+16.拆分字符串（保留正则匹配）:result=re.split("(<[^<>]*>)",subject)
+17.多行匹配：lines=re.split(\r?\n",subject)
+	reobj=re.compile("regex pattern")
+	for line in lines[:]：
+		if re.search(line):
+			#yes
+		else:
+			#no

@@ -1,0 +1,17 @@
+1.RegexBuddy
+2.RegexPal(JavaScript only)
+3.RegexMagic(无关正则表达式语法)
+在线测试
+1.RegexPlanet
+2.regex.larsolavtorvik.com(java php)
+3.Nregex(.net)
+4.Rubular(ruby)
+5.myregexp.com(java)
+桌面测试工具
+1.Expresso
+2.the regulator
+3.SDL Regex Fuzzer
+windows下grep正则
+1.PowerGREP
+2.windows Grep
+3.regexrenamer
